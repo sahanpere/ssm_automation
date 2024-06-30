@@ -1,2 +1,4 @@
 # ssm_automation
-How to run ec2 bootstrapping using ssm automation and event bridge rules
+This repo covers the sample code which described in below medium article
+
+https://medium.com/@sahanpere/bootstrap-an-ec2-instances-using-ssm-automation-a56fddbc932e
