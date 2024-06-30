@@ -1,0 +1,22 @@
+Resources:
+  EC2StateInterceptorEventRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: A CloudWatch Event rule to notify of state change in ec2 instance
+      Name: AWS_PLATFORM_BOOTSTRAP
+      EventBusName: default
+      State: ENABLED
+      EventPattern:
+        source:
+          - "aws.ec2"
+        detail-type:
+          - "EC2 Instance State-change Notification"
+        detail:
+          state:
+            - "running"
+      Targets:
+        - Id: "ssm-automation-domainjoin"
+          Arn: !Sub
+               - "arn:${AWS::Partition}:events:eu-west-1:${IBAccountId}:event-bus/ssm-automation-domainjoin"
+               - IBAccountId: !FindInMap [ ImageBuilderAccounts, !Ref HubName, IBAccountId ]
+          RoleArn: !GetAtt EC2StateInterceptorEventRole.Arn
