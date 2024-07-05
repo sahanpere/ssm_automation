@@ -17,6 +17,5 @@ Resources:
       Targets:
         - Id: "ssm-automation-domainjoin"
           Arn: !Sub
-               - "arn:${AWS::Partition}:events:eu-west-1:${IBAccountId}:event-bus/ssm-automation-domainjoin"
-               - IBAccountId: !FindInMap [ ImageBuilderAccounts, !Ref HubName, IBAccountId ]
+               - "arn:${AWS::Partition}:events:eu-west-1:<account-id>}:event-bus/ssm-automation-domainjoin"
           RoleArn: !GetAtt EC2StateInterceptorEventRole.Arn
