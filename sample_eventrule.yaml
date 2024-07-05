@@ -3,7 +3,7 @@ Resources:
     Type: AWS::Events::Rule
     Properties:
       Description: A CloudWatch Event rule to notify of state change in ec2 instance
-      Name: AWS_PLATFORM_BOOTSTRAP
+      Name: AWS_BOOTSTRAP
       EventBusName: default
       State: ENABLED
       EventPattern:
